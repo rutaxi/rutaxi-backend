@@ -1,0 +1,48 @@
+.user-info-input-wrapper {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 100vw;
+}
+.user-info-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+}
+.user-info-input input {
+    width: 17em;
+    padding: 0.7em 1em;
+    padding: 0.8em 1em 0.6em 1em;
+    border: 2px solid #F8F8F8;
+    background-color: #F8F8F8;
+    outline: none;
+    border-radius: 6px;
+    margin-bottom: 0.5em;
+}
+.user-info-placeholder {
+    position: absolute;
+    background-color: #F8F8F8;
+    color: #B7B7B7;
+    left: 0.9em;
+    top: 0.8em;
+    padding: 0 0.4em 0 0.3em;
+    transition: all 0.2s ease-in;
+}
+.user-info-input input:is(:focus, :valid) {
+    border: 0.15em solid #B7B7B7;
+    background-color: white;
+    color: #757575;
+}
+.invalid-confirm-password.user-info-input input:is(:focus, :valid) {
+    border: 0.15em solid #ffafaf;
+}
+.user-info-input input:is(:focus, :valid) + .user-info-placeholder {
+    transform: translatey(-1.3em) translatex(-0.2em);
+    color: #757575;
+    background-color: white;
+    font-size: 0.8em;
+}
+.invalid-confirm-password.user-info-input input:is(:focus, :valid) + .user-info-placeholder {
+    color: #ff7a7a;
+}

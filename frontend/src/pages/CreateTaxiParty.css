@@ -1,0 +1,10 @@
+#create-taxi-party-wrapper {
+    overflow: auto;
+    height: calc(100vh - 4em);
+    width: 100%;
+    text-align: -webkit-center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

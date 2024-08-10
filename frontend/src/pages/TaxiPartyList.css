@@ -1,0 +1,38 @@
+#taxi-party-list-wrapper {
+    text-align: justify;
+    padding: 2.3em 1.6em 0.5em 1.6em;
+    overflow: auto;
+    height: calc(100vh - 4em);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+#taxi-party-list-wrapper h2 {
+    font-size: 2em;
+    margin: 0 0 0.3em 0;
+}
+
+#taxi-party-list-subtitle {
+    display: flex;
+    justify-content: space-between;
+    color: #19D34D;
+    font-weight: bold;
+    font-size: 0.9em;
+    align-items: flex-start;
+}
+#taxi-party-list-subtitle svg {
+    width: 1.5em;
+    height: auto;
+}
+
+#taxi-party-list-description {
+    font-size: 0.9em;
+    margin-left: 0.2em;
+}
+
+#taxi-party-list-search {
+    background: #DEDEDE;
+    border-radius: 5px;
+    padding: 0.4em 0.5em 0.1em 0.5em;
+    margin-top: 0.6em;
+}

@@ -1,0 +1,19 @@
+#taxi-party-detail-wrapper {
+    text-align: justify;
+    padding: 2.3em 1.6em 1em 1.6em;
+    overflow: auto;
+    height: calc(100vh - 4em);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+#taxi-party-detail-wrapper h2 {
+    font-size: 2em;
+    margin: 0 0 0.3em 0;
+}
+
+#taxi-party-detail-community {
+    color: #19D34D;
+    font-weight: bold;
+    font-size: 0.9em;
+}

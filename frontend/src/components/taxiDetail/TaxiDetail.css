@@ -1,0 +1,49 @@
+#taxi-party-detail-box {
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 0.7em 0.5em 0.8em 0.5em;
+    margin-top: 0.5em;
+}
+
+#taxi-party-detail-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#taxi-party-detail-btn-ride {
+    display: flex;
+}
+
+#taxi-party-detail-btn-ride a {
+    text-decoration: none;
+}
+
+#taxi-party-detail-btn {
+    background: #19D34D;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    width: 5.8em;
+    height: 2.7em;
+    border-radius: 7px;
+    align-content: center;
+    text-align: center;
+    margin-right: 0.3em;
+    cursor: pointer;
+}
+#taxi-party-detail-btn:hover {
+    background: #0F9D58;
+}
+#taxi-party-detail-btn:active {
+    background: #078b4b;
+}
+.taxi-btn-cancle {
+    background: #FF8B99 !important;
+}
+.taxi-btn-cancle:hover {
+    background: #FF6B7A !important;
+}
+.taxi-btn-cancle:active {
+    background: #FF4B5B !important;
+}

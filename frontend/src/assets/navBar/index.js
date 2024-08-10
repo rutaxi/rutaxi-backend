@@ -1,0 +1,6 @@
+export { ReactComponent as CircleGray } from './ic_circle_gray.svg'
+export { ReactComponent as CircleGreen } from './ic_circle_green.svg'
+export { ReactComponent as HomeGray } from './ic_home_gray.svg'
+export { ReactComponent as HomeGreen } from './ic_home_green.svg'
+export { ReactComponent as SearchGray } from './ic_search_gray.svg'
+export { ReactComponent as SearchGreen } from './ic_search_green.svg'

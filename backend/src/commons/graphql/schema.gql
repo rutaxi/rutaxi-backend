@@ -1,0 +1,85 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TaxiLocation {
+  id: String!
+  address: String!
+  lat: Float!
+  lng: Float!
+}
+
+type TaxiPartyTag {
+  id: String!
+  name: String!
+  taxiParties: [TaxiParty!]!
+}
+
+type TaxiParty {
+  id: String!
+  name: String!
+  startTime: DateTime!
+  isNotmalTaxi: Boolean!
+  startLocation: TaxiLocation!
+  endLocation: TaxiLocation!
+  taxiPartyTags: [TaxiPartyTag!]!
+  users: [User!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type User {
+  id: String!
+  userName: String!
+  taxiPartys: [TaxiParty!]!
+}
+
+type Comment {
+  id: String!
+  sendTime: DateTime!
+  content: String!
+  writer: User!
+  taxiParty: TaxiParty!
+}
+
+type Query {
+  fetchUser: String!
+  fetchAllTaxiParty: [TaxiParty!]!
+  fetchMyTaxiParties: [TaxiParty!]!
+  fetchComments(taxiPartyId: String!): [Comment!]!
+}
+
+type Mutation {
+  createUser(userName: String!, password: String!): User!
+  updateUser(userName: String!, oldPassword: String!, password: String!): User!
+  login(userName: String!, password: String!): String!
+  restoreAccessToken: String!
+  createTaxiParty(createTaxiPartyInput: CreateTaxiPartyInput!): TaxiParty!
+  joinInTaxiParty(taxiPartyId: String!): TaxiParty!
+  leaveTaxiParty(taxiPartyId: String!): String!
+  createComment(CreateCommentInput: CreateCommentInput!): Comment!
+}
+
+input CreateTaxiPartyInput {
+  name: String!
+  startTime: DateTime!
+  isNotmalTaxi: Boolean!
+  startLocation: TaxiLocationInput!
+  endLocation: TaxiLocationInput!
+  taxiPartyTags: [String!]!
+}
+
+input TaxiLocationInput {
+  address: String!
+  lat: Float!
+  lng: Float!
+}
+
+input CreateCommentInput {
+  sendTime: DateTime!
+  content: String!
+  taxiPartyId: String!
+}

@@ -1,0 +1,1 @@
+export { ReactComponent as Army97 } from './ic_army_97.svg'

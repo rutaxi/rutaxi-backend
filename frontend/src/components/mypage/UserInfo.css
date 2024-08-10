@@ -1,0 +1,30 @@
+#mypage-user-info {
+    display: flex;
+}
+
+#mypage-edit-svg {
+    text-align: center;
+}
+
+#mypage-edit-svg a {
+    text-decoration: none;
+}
+
+#mypage-user-info svg {
+    height: 5.2em;
+    width: 5.2em;
+}
+
+#mypage-user-name {
+    font-size: 1.4em;
+    margin-left: 1em;
+    font-weight: 600;
+    padding-top: 1.15em;
+}
+
+#mypage-edit-btn {
+    margin-top: 1em;
+    color: #4296F4;
+    font-weight: bold;
+    font-size: 0.7em;
+}

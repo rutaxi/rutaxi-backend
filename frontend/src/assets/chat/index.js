@@ -1,0 +1,7 @@
+export { ReactComponent as LeftIcon } from './ic_left.svg'
+export { ReactComponent as QuestionIcon } from './ic_question_mark.svg'
+export { ReactComponent as ResetIcon } from './ic_reset.svg'
+export { ReactComponent as UploadIcon } from './ic_upload.svg'
+export { ReactComponent as BlueCar } from './ic_car_blue.svg'
+export { ReactComponent as GreenCar } from './ic_car_green.svg'
+export { ReactComponent as GrayCar } from './ic_car_gray.svg'

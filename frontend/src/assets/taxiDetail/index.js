@@ -1,0 +1,5 @@
+export { ReactComponent as CarGray } from './ic_car_gray.svg'
+export { ReactComponent as CarGreen } from './ic_car_green.svg'
+export { ReactComponent as ClockIcon } from './ic_clock.svg'
+export { ReactComponent as LocationIcon } from './ic_location.svg'
+export { ReactComponent as QuestionIcon } from './ic_question.svg'

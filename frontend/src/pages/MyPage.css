@@ -1,0 +1,21 @@
+#mypage-wrapper {
+    text-align: justify;
+    padding: 3.6em 1.6em 0.5em 1.6em;
+    overflow: auto;
+    height: calc(100vh - 4em);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+#mypage-wrapper h2 {
+    font-size: 2em;
+    margin: 0 0 0.7em 0;
+}
+
+#mypage-hr {
+    background-color: #B7B7B7;
+    border: none;
+    height: 1px;
+    margin: 2.5em 0.7em 1.5em 0.7em;
+}

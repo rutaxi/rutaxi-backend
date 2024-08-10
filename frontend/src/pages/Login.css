@@ -1,0 +1,118 @@
+/* 로고 */
+#login-wrapper {
+    padding-top: 2.5em;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    align-content: center;
+    text-align: -webkit-center;
+}
+.join-state-wrapper#login-wrapper {
+    padding-top: 0;
+}
+#login-title {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+#login-title-green {
+    color: #19D34D;
+}
+
+/* 구글 로그인 버튼 */
+#login-google-btn {
+    background-color: white;
+    color: #757575;
+    font-weight: bold;
+    margin-top: 2em;
+    border: none;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    padding: 0.6em 1em;
+    display: flex;
+    align-items: center;
+}
+#login-google-btn:hover {
+    background-color: #f8f8f8;
+}
+#login-google-btn:active {
+    background-color: #f0f0f0;
+}
+#login-google-btn span {
+    margin-left: 1em;
+}
+
+/* 로그인 유형 구분선 */
+#login-or {
+    position: relative;
+    text-align: center;
+    margin: 1.5em 0em;
+    color: #B7B7B7;
+    background: #B7B7B7;
+    font-weight: bold;
+    font-size: 0.8em;
+    width: 20em;
+    max-width: 80%;
+}
+#login-or hr {
+    margin: 0;
+    border: none;
+    border-top: 0.15em solid;
+}
+#login-or div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 0 1em;
+}
+
+/* 로그인 버튼 */
+.login-btn {
+    justify-content: center;
+    font-size: 0.9em;
+    background-color: #19D34D;
+    color: white;
+    font-weight: bold;
+    border: none;
+    display: flex;
+    align-items: center;
+    width: 18em;
+    padding: 0.7em 0em 0.6em 0em;
+    outline: none;
+    border-radius: 6px;
+    margin-bottom: 0.8em;
+    cursor: pointer;
+}
+.login-btn:hover {
+    background-color: #1AE04D;
+}
+.login-btn:active {
+    background-color: #17B944;
+}
+.login-btn:disabled {
+    background-color: #70DB8E;
+    cursor: not-allowed;
+}
+
+/* 로그인/회원가입 전환 */
+#login-join-wrapper {
+    display: flex;
+    justify-content: center;
+    font-size: 0.8em;
+    color: #9A9A9A;
+    margin-top: 1.5em;
+}
+#login-to-join {
+    cursor: pointer;
+    margin-left: 0.3em;
+    color: #4296F4;
+    font-weight: bold;
+    text-decoration: none;
+}
+#login-to-join:hover {
+    color: #1E88E5;
+}
+#login-to-join:active {
+    color: #0D47A1;
+}
