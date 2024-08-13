@@ -3,7 +3,7 @@ import { User } from "./entities/user.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import * as bcrypt from 'bcrypt';
-import { IUsersServiceCreate, IUsersServiceFindOneById, IUsersServiceFindOneByUserName, IUsersServiceIsUserInCommunity, IUsersServiceUpdate } from "./interfaces/users-service.interface";
+import { IUsersServiceCreate, IUsersServiceFindOne, IUsersServiceFindOneById, IUsersServiceFindOneByUserName, IUsersServiceIsUserInCommunity, IUsersServiceUpdate } from "./interfaces/users-service.interface";
 
 @Injectable()
 export class UsersService {
@@ -11,6 +11,10 @@ export class UsersService {
         @InjectRepository(User)
         private readonly usersRepository: Repository<User>,
     ) {}
+
+    findOne({email}: IUsersServiceFindOne) {
+        return this.usersRepository.findOne({where: {email: email}});
+    }
 
     findOneById({userId}: IUsersServiceFindOneById) {
         return this.usersRepository.findOne({where: {id: userId}});
@@ -29,13 +33,14 @@ export class UsersService {
         return user.taxiPartys.some(community => community.id === taxiPartyId);
     }
 
-    async create({userName, password}: IUsersServiceCreate): Promise<User> {
-        const user = await this.findOneByUserName({userName});
-        if (user) throw new ConflictException('이미 등록된 이메일입니다.');
+    async create({userName, email, password}: IUsersServiceCreate): Promise<User> {
+        // const user = await this.findOneByUserName({userName});
+        // if (user) throw new ConflictException('이미 등록된 이메일입니다.');
         const hashedPassword = await bcrypt.hash(password, 10);
-
+        console.log("create함수 안에 있음", userName);
         return this.usersRepository.save({
             userName,
+            email,
             password: hashedPassword,
         });
     }

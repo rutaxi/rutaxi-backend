@@ -20,6 +20,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend/src:/myfolder/frontend/src
+      - ./frontend/public:/myfolder/frontend/public
     ports:
       - 3000:3000
     env_file:

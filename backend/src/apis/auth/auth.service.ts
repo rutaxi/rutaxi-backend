@@ -23,7 +23,7 @@ export class AuthService {
         if(!isAuth) throw new UnprocessableEntityException('암호가 틀렸습니다.');
 
         // 4. refreshToken 만들어서 브라우저 쿠키에 저장해서 전달
-        this.setRefreshToken({user, context});
+        this.setRefreshToken({user, res: context.res});
 
         // 4. 일치하는 유저도 있고, 비밀번호도 맞다면 - accessToken(=JMT) 만들어서 브라우저로 전달
         return this.getAccessToken({user});
@@ -40,13 +40,13 @@ export class AuthService {
         return this.getAccessToken({user})
     }
 
-    setRefreshToken({user, context}: IAuthServiceSetRefreshToken): void {
+    setRefreshToken({user, res}: IAuthServiceSetRefreshToken): void {
         // 개발환경
         const refreshToken = this.jwtService.sign(
             {sub: user.id},
             {secret: "나의리프레시비밀번호", expiresIn: '2w'},
         );
-        context.res.setHeader(
+        res.setHeader(
             'set-Cookie', 
             `refreshToken=${refreshToken}; path=/;`,
         );

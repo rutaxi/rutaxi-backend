@@ -28,9 +28,10 @@ export class UsersResolver {
     @Mutation(() => User)
     createUser(
         @Args('userName') userName: string,
+        @Args('email') email: string,
         @Args('password') password: string,
     ): Promise<User> {
-        return this.usersService.create({userName, password});
+        return this.usersService.create({userName, email, password});
     }
     
 

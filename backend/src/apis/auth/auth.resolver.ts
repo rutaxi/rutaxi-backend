@@ -11,7 +11,7 @@ export class AuthResolver {
     ) {}
 
     @Mutation(() => String)
-    login(
+    async login( 
         @Args('userName') userName: string,
         @Args('password') password: string,
         @Context() context: IContext,
@@ -24,7 +24,9 @@ export class AuthResolver {
     restoreAccessToken(
         @Context() context: IContext,
     ): string {
-        return this.authService.restoreAccessToken({user: context.req.user});
+        console.log("잘 오니?");
+        const temp = this.authService.restoreAccessToken({user: context.req.user});
+        return temp;
     }
-i
+
 }

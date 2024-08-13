@@ -13,6 +13,11 @@ export class User {
     @Field(() => String)
     userName: string;
 
+    // $$
+    @Column()
+    @Field(() => String)
+    email: string;
+
     @Column()
     password: string;
 

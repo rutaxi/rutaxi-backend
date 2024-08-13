@@ -11,7 +11,6 @@ export class JwtRefreshStrategy extends PassportStrategy(Strategy, 'refresh') { 
             },
             secretOrKey: '나의리프레시비밀번호', // env로 빼기
         });
-
     }
 
     validate(payload) {

@@ -1,19 +1,19 @@
-import { gql } from '@apollo/client';
+import { gql } from '@apollo/client'
 
 export const LOGIN_USER = gql`
   mutation Login($userName: String!, $password: String!) {
     login(userName: $userName, password: $password)
   }
-`;
+`
 
-export const CREATE_USER= gql`
+export const CREATE_USER = gql`
   mutation CreateUser($userName: String!, $password: String!) {
     createUser(userName: $userName, password: $password) {
       id
       userName
     }
   }
-`;
+`
 
 export const CREATE_PARTY_MUTATION = gql`
   mutation CreateTaxiParty($createTaxiPartyInput: CreateTaxiPartyInput!) {
@@ -36,7 +36,7 @@ export const CREATE_PARTY_MUTATION = gql`
       }
     }
   }
-`;
+`
 
 export const JOIN_IN_TAXI_PARTY = gql`
   mutation JoinInTaxiParty($taxiPartyId: String!) {
@@ -59,17 +59,17 @@ export const JOIN_IN_TAXI_PARTY = gql`
         name
       }
       users {
-          userName
+        userName
       }
     }
   }
-`;
+`
 
 export const LEAVE_TAXI_PARTY = gql`
   mutation LeaveTaxiParty($taxiPartyId: String!) {
     leaveTaxiParty(taxiPartyId: $taxiPartyId)
   }
-`;
+`
 
 export const CREATE_COMMENT = gql`
   mutation CreateComment($CreateCommentInput: CreateCommentInput!) {
@@ -82,12 +82,26 @@ export const CREATE_COMMENT = gql`
       }
     }
   }
-`;
+`
 
 export const UPDATE_USER = gql`
-  mutation UpdateUser($userName: String!, $oldPassword: String!, $password: String!) {
-    updateUser(userName: $userName, oldPassword: $oldPassword, password: $password) {
+  mutation UpdateUser(
+    $userName: String!
+    $oldPassword: String!
+    $password: String!
+  ) {
+    updateUser(
+      userName: $userName
+      oldPassword: $oldPassword
+      password: $password
+    ) {
       userName
     }
   }
-`;
+`
+
+export const RESTORE_ACCESS_TOKEN = gql`
+  mutation RestoreAccessToken {
+    restoreAccessToken
+  }
+`

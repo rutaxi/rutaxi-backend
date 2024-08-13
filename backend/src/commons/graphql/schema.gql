@@ -34,6 +34,7 @@ scalar DateTime
 type User {
   id: String!
   userName: String!
+  email: String!
   taxiPartys: [TaxiParty!]!
 }
 
@@ -53,7 +54,7 @@ type Query {
 }
 
 type Mutation {
-  createUser(userName: String!, password: String!): User!
+  createUser(userName: String!, email: String!, password: String!): User!
   updateUser(userName: String!, oldPassword: String!, password: String!): User!
   login(userName: String!, password: String!): String!
   restoreAccessToken: String!
