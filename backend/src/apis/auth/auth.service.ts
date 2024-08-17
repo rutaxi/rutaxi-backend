@@ -48,7 +48,7 @@ export class AuthService {
         );
         res.setHeader(
             'set-Cookie', 
-            `refreshToken=${refreshToken}; path=/;`,
+            `rutaxiRefreshToken=${refreshToken}; path=/;`,
         );
 
         // 배포환경
