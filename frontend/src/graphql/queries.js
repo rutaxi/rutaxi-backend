@@ -63,3 +63,12 @@ export const COMMENTS = gql`
         }
     }
 `;
+
+export const FETCH_USER = gql`
+    query FetchUser {
+        fetchUser{
+            userName
+            email
+        }
+    }
+`;

@@ -22,7 +22,7 @@ function Login({ setIsLoggedIn, setUserName }) {
 
   useEffect(() => {
     // 쿠키에서 refreshToken 가져오기
-    const token = Cookies.get('refreshToken')
+    const token = Cookies.get('rutaxiRefreshToken')
     // localStorage.setItem('token', token)
 
     const fetchAccessToken = async () => {
@@ -64,30 +64,31 @@ function Login({ setIsLoggedIn, setUserName }) {
 
       {/* 구글 로그인 */}
       <button id="login-google-btn">
-        <GoogleIcon />
-        <span>Sign in with Google</span>
+        <Link to="http://localhost:3001/login/google">
+          <GoogleIcon />
+          <span>Sign in with Google</span>
+        </Link>
       </button>
-      <Link to="http://localhost:3001/login/google" id="login-guest-btn">
-        link
-      </Link>
 
-      {/* 로그인 유형 구분선 */}
-      <div id="login-or">
-        <hr />
-        <div>또는</div>
-      </div>
+      <div style={{display: 'none'}}>
+        {/* 로그인 유형 구분선 */}
+        <div id="login-or">
+          <hr />
+          <div>또는</div>
+        </div>
 
-      {/* 로그인 폼 */}
-      {login ? (
-        <LoginForm setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} />
-      ) : (
-        <JoinForm setLogin={setLogin} />
-      )}
+        {/* 로그인 폼 */}
+        {login ? (
+          <LoginForm setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} />
+        ) : (
+          <JoinForm setLogin={setLogin} />
+        )}
 
-      {/* 로그인/회원가입 전환 */}
-      <div id="login-join-wrapper" onClick={() => setLogin(!login)}>
-        <div>{login ? '회원이 아니신가요?' : '이미 회원이신가요?'}</div>
-        <div id="login-to-join">{login ? '회원가입하기' : '로그인하기'}</div>
+        {/* 로그인/회원가입 전환 */}
+        <div id="login-join-wrapper" onClick={() => setLogin(!login)}>
+          <div>{login ? '회원이 아니신가요?' : '이미 회원이신가요?'}</div>
+          <div id="login-to-join">{login ? '회원가입하기' : '로그인하기'}</div>
+        </div>
       </div>
     </div>
   )

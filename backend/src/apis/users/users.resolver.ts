@@ -6,6 +6,14 @@ import { GqlAuthGuard } from "../auth/guards/gql-auth.guard";
 import { IContext } from "src/commons/interfaces/context";
 import { TaxiPartiesService } from "../taxiParties/taxiParties.service";
 
+interface IOAuthUser {
+    user: {
+        userName: string;
+        email: string;
+        password: string;
+    }
+}
+
 @Resolver()
 export class UsersResolver {
     constructor(
@@ -14,15 +22,12 @@ export class UsersResolver {
     ) {}
 
     @UseGuards(GqlAuthGuard('access'))
-    @Query(() => String)
+    @Query(() => User)
     fetchUser(
         @Context() context: IContext,
     ): Promise<User> {
-        console.log('=================');
-        console.log(context.req.user.userName);
-        console.log('=================');
-
-        const user = this.usersService.findOneByUserName(context.req.user.userName);
+        const userId = context.req.user.id;
+        const user = this.usersService.findOneById({userId: userId});
         return user;
     }
 

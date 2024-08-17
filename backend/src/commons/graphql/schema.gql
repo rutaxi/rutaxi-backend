@@ -47,7 +47,7 @@ type Comment {
 }
 
 type Query {
-  fetchUser: String!
+  fetchUser: User!
   fetchAllTaxiParty: [TaxiParty!]!
   fetchMyTaxiParties: [TaxiParty!]!
   fetchComments(taxiPartyId: String!): [Comment!]!
