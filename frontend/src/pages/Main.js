@@ -5,7 +5,7 @@ function Main({ isLoggedIn, setIsLoggedIn, setUserName }) {
     return (
         <>
         {isLoggedIn ? (
-            <MainContent />
+            <MainContent setUserName={setUserName} />
         ) : (
             <Login setIsLoggedIn={setIsLoggedIn} setUserName={setUserName} />
         )}
