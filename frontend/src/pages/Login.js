@@ -30,7 +30,7 @@ function Login({ setIsLoggedIn, setUserName }) {
         const accessToken = await restoreAccessToken()
         localStorage.setItem('token', accessToken.data.restoreAccessToken)
         localStorage.setItem('userName', 'testName')
-        setUserName('testName')
+        // setUserName('testName')
         setIsLoggedIn(true)
       } catch (err) {
         console.error('Error logging in:', err)

@@ -1,13 +1,22 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { MY_TAXI_PARTIES } from '../../graphql/queries';
+import { MY_TAXI_PARTIES, FETCH_USER } from '../../graphql/queries';
 import { TaxiList } from "../listElement";
 import './MainContent.css';
 
-function MainContent() {
+function MainContent({setUserName}) {
     const { loading, error, data, refetch } = useQuery(MY_TAXI_PARTIES);
+    const { data: userData } = useQuery(FETCH_USER);
     const [myPartyList, setMyPartyList] = React.useState([]);
     
+    useEffect(() => {
+        if (userData) {
+            setUserName(userData.fetchUser.userName);
+            console.log("setUserName : ", userData);
+            localStorage.setItem('userName', userData.fetchUser.userName);
+        }
+    }, [userData]);
+
     useEffect(() => {
         // fetchMyTaxiParties
         refetch();
