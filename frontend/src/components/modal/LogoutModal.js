@@ -19,6 +19,7 @@ function LogoutContent({ closeModal, setIsLoggedIn }) {
                     setIsLoggedIn(false);
                     closeModal();
                     goToMain();
+                    document.cookie = 'rutaxiRefreshToken=; Max-Age=0; path=/;';
                 }}>예</div>
                 <div id="logout-no" onClick={closeModal}>아니오</div>
             </div>
