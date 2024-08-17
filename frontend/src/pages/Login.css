@@ -41,6 +41,13 @@
     margin-left: 1em;
 }
 
+#login-google-btn a {
+    text-decoration: none;
+    color: #757575;
+    display: flex;
+    align-items: center;
+}
+
 /* 로그인 유형 구분선 */
 #login-or {
     position: relative;
