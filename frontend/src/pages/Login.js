@@ -64,7 +64,7 @@ function Login({ setIsLoggedIn, setUserName }) {
 
       {/* 구글 로그인 */}
       <button id="login-google-btn">
-        <Link to="http://localhost:3001/login/google">
+        <Link to={process.env.REACT_APP_GRAPHQL_URI+"/login/google"}>
           <GoogleIcon />
           <span>Sign in with Google</span>
         </Link>

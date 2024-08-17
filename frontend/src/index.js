@@ -38,7 +38,7 @@ const authLink = setContext((_, { headers }) => {
 })
 
 const httpLink = new HttpLink({
-  uri: process.env.REACT_APP_GRAPHQL_URI,
+  uri: process.env.REACT_APP_GRAPHQL_URI+"/graphql",
   credentials: 'include', // 쿠키를 포함하여 요청
 })
 
