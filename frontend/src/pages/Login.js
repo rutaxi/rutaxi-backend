@@ -22,7 +22,7 @@ function Login({ setIsLoggedIn, setUserName }) {
 
   useEffect(() => {
     // 쿠키에서 refreshToken 가져오기
-    const token = Cookies.get('refreshToken')
+    const token = Cookies.get('rutaxiRefreshToken')
     // localStorage.setItem('token', token)
 
     const fetchAccessToken = async () => {
