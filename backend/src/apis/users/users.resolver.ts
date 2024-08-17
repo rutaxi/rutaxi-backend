@@ -17,12 +17,13 @@ export class UsersResolver {
     @Query(() => String)
     fetchUser(
         @Context() context: IContext,
-    ): string {
+    ): Promise<User> {
         console.log('=================');
-        console.log(context.req.user);
+        console.log(context.req.user.userName);
         console.log('=================');
 
-        return '인가에 성공하였습니다.';
+        const user = this.usersService.findOneByUserName(context.req.user.userName);
+        return user;
     }
 
     @Mutation(() => User)
