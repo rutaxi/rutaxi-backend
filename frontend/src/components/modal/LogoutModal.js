@@ -16,6 +16,8 @@ function LogoutContent({ closeModal, setIsLoggedIn }) {
             <div id='logout-btns'>
                 <div id="logout-yes" onClick={() => {
                     localStorage.removeItem('token');
+                    localStorage.removeItem('userName');
+                    localStorage.removeItem('userEmail');
                     setIsLoggedIn(false);
                     closeModal();
                     goToMain();

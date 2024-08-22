@@ -4,7 +4,7 @@ import { MY_TAXI_PARTIES, FETCH_USER } from '../../graphql/queries';
 import { TaxiList } from "../listElement";
 import './MainContent.css';
 
-function MainContent({setUserName}) {
+function MainContent({setUserName, setUserEmail}) {
     const { loading, error, data, refetch } = useQuery(MY_TAXI_PARTIES);
     const { data: userData } = useQuery(FETCH_USER);
     const [myPartyList, setMyPartyList] = React.useState([]);
@@ -14,6 +14,8 @@ function MainContent({setUserName}) {
             setUserName(userData.fetchUser.userName);
             console.log("setUserName : ", userData);
             localStorage.setItem('userName', userData.fetchUser.userName);
+            setUserEmail(userData.fetchUser.email);
+            localStorage.setItem('userEmail', userData.fetchUser.email);
         }
     }, [userData]);
 

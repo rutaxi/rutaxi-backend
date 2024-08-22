@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 import './TaxiPartyChat.css';
 import { ChatInput, ChatList, ChatNav } from '../components/chat';
 
-function TaxiPartyChat({ userName }) {
+function TaxiPartyChat({ userName, userEmail }) {
   const chatContainerRef = useRef(null);
 
   const location = useLocation();
@@ -28,7 +28,7 @@ function TaxiPartyChat({ userName }) {
         <ChatNav taxiParty={taxiParty} />
 
         {/* 채팅 내역 */}
-        <ChatList data={data ? data.fetchComments : null} userName={userName} chatContainerRef={chatContainerRef} />
+        <ChatList data={data ? data.fetchComments : null} userName={userName} chatContainerRef={chatContainerRef} userEmail={userEmail} />
 
         {/* 채팅 입력 및 버튼 */}
         <ChatInput taxiPartyId={taxiPartyId} refetch={refetch} />
