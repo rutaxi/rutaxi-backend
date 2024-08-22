@@ -1,21 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from 'react';
-import { CircleGray, CircleGreen, HomeGray, HomeGreen, SearchGray, SearchGreen } from "../../assets/navBar";
+import { NavTaxiGray, NavTaxiGreen, NavSearchGray, NavSearchGreen, NavUserGray, NavUserGreen } from "../../assets/navBar";
 import './NavBar.css';
 
 function NavBar() {
-    const [navActive, setNavActive] = useState('home');
+    const location = useLocation();
+    const [navActive, setNavActive] = useState(location.pathname === '/taxi-party-list' ? 'list' : location.pathname === '/mypage' ? 'search' : 'home');
 
     return (
         <nav id="nav-bar-wrapper">
             <NavBarElem to='/taxi-party-list' setNavActive={setNavActive} activeElem='list'>
-                {navActive === 'list' ? <HomeGreen className="nav-selected" /> : <HomeGray />}
+                {navActive === 'list' ? <NavSearchGreen className="nav-selected" /> : <NavSearchGray />}
             </NavBarElem>
             <NavBarElem to='/' setNavActive={setNavActive} activeElem='home'>
-                {navActive === 'home' ? <CircleGreen className="nav-selected" /> : <CircleGray />}
+                {navActive === 'home' ? <NavTaxiGreen className="nav-selected" /> : <NavTaxiGray />}
             </NavBarElem>
             <NavBarElem to='/mypage' setNavActive={setNavActive} activeElem='search'>
-                {navActive === 'search' ? <SearchGreen className="nav-selected" /> : <SearchGray />}
+                {navActive === 'search' ? <NavUserGreen className="nav-selected" /> : <NavUserGray />}
             </NavBarElem>
         </nav>
     );
