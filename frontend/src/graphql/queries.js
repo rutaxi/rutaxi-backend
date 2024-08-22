@@ -60,6 +60,10 @@ export const COMMENTS = gql`
             id
             sendTime
             content
+            writer {
+                userName
+                email
+            }
         }
     }
 `;
