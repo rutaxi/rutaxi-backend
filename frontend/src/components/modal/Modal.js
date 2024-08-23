@@ -2,6 +2,8 @@ import Modal from 'react-modal';
 import ChatModal from './ChatModal';
 import './Modal.css';
 import LogoutContent from './LogoutModal';
+import CreateModal from './CreateModal';
+import DeleteModal from './DeleteModal';
 
 function DescriptionModal({ modalIsOpen, setIsOpen, type, setIsLoggedIn }) {
     function closeModal() {
@@ -17,7 +19,7 @@ function DescriptionModal({ modalIsOpen, setIsOpen, type, setIsLoggedIn }) {
             contentLabel="Example Modal" >
             {type && type == "logout" ?
                 <LogoutContent closeModal={closeModal} setIsLoggedIn={setIsLoggedIn} /> :
-                <ChatModal closeModal={closeModal} />}
+                (type == "create" ? <CreateModal closeModal={closeModal} /> : type == 'delete' ? <DeleteModal closeModal={closeModal} /> : <ChatModal closeModal={closeModal} />)}
         </Modal>
     );
 }

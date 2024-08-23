@@ -34,7 +34,7 @@ function CreateTaxiParty() {
                 }
             });
             console.log('Create party successful:', result);
-            navigate('/taxi-party-list');
+            navigate('/taxi-party-list', { state : { isCreated: true } });
         } catch (err) {
             console.error('Error creating party:', err);
         }

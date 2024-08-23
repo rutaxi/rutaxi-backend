@@ -4,11 +4,16 @@ import { ALL_TAXI_PARTY } from '../graphql/queries';
 import { TaxiList } from "../components/listElement";
 import { AddIcon } from "../assets/taxiPartyList";
 import './TaxiPartyList.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { Modal } from '../components/modal';
 
 function TaxiPartyList() {
     const { loading, error, data, refetch } = useQuery(ALL_TAXI_PARTY);
     const [taxiPartyList, setTaxiPartyList] = React.useState([]);
+
+    const location = useLocation();
+    const { isCreated } = location.state || false;
+    const [isModalOpen, setIsModalOpen] = React.useState(isCreated);
 
     useEffect(() => {
         refetch();
@@ -34,6 +39,12 @@ function TaxiPartyList() {
 
             {/* 택시팟 리스트 */}
             <TaxiList taxiPartyList={taxiPartyList}  />
+
+            <Modal 
+                modalIsOpen={isModalOpen}
+                setIsOpen={setIsModalOpen}
+                type="create"
+            />
         </div>
     );
 }
