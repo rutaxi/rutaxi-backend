@@ -17,12 +17,18 @@ function TaxiDetail({ userName }) {
     const [rideTogether, setRideTogether] = useState(users.some(user => user.userName === userName));
     const taxiTitle = `${startLocation.address}에서 ${endLocation.address}로`
 
+    const [changeCnt, setChangeCnt] = useState(0);
+    const handleGoBack = () => {
+        navigate(-1);
+    }
+
     const handleRideTogetherBtn = async () => {
         try {
             const result = await joinInTaxiParty({ variables: { taxiPartyId: id } });
             console.log("ride result : ", result);
             setTaxiParty(result.data.joinInTaxiParty)
             setRideTogether(true);
+            setChangeCnt(0);
         } catch (err) {
             console.error("ride err : ", err);
         }
@@ -33,7 +39,11 @@ function TaxiDetail({ userName }) {
             const result = await leaveTaxiParty({ variables: { taxiPartyId: id } });
             console.log("leave result : ", result);
             setRideTogether(false);
-            navigate('/taxi-party-list');
+            setChangeCnt(-1);
+            if(users.length == 1) {
+                navigate(-1, { state: { isDeleted: true } });
+            }
+            // navigate('/taxi-party-list');
         } catch (err) {
             console.error("leave err : ", err);
         }
@@ -44,7 +54,7 @@ function TaxiDetail({ userName }) {
             <div id="taxi-party-detail-top">
                 <div>
                     {/* 여석 정보 */}
-                    <RemainSeat usersCnt={users.length} seatCnt={isNotmalTaxi ? 4 : 9} />
+                    <RemainSeat usersCnt={users.length + changeCnt} seatCnt={isNotmalTaxi ? 4 : 9} />
                     {/* 택시팟 이름 및 유형 */}
                     <TaxiTitle title={taxiTitle} type={isNotmalTaxi ? "일반택시" : "대형택시"} />
                 </div>
