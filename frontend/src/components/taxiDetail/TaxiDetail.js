@@ -18,9 +18,6 @@ function TaxiDetail({ userName }) {
     const taxiTitle = `${startLocation.address}에서 ${endLocation.address}로`
 
     const [changeCnt, setChangeCnt] = useState(0);
-    const handleGoBack = () => {
-        navigate(-1);
-    }
 
     const handleRideTogetherBtn = async () => {
         try {
