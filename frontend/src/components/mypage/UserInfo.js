@@ -7,9 +7,9 @@ function UserInfo({ userName }) {
         <div id="mypage-user-info">
             <div id="mypage-edit-svg">
                 <GrayCar />
-                <Link to="/edit-profile">
+                {/* <Link to="/edit-profile">
                     <div id="mypage-edit-btn">프로필 수정하기</div>
-                </Link>
+                </Link> */}
             </div>
             <div id="mypage-user-name">{userName}</div>
         </div>
