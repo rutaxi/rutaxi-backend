@@ -31,7 +31,7 @@ function LoadMap() {
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
-                zoom={10}
+                zoom={12}
             >
                 {/* <Marker position={center} /> */}
                 <Marker position={startLocation} icon={{url: StartIcon}} />
