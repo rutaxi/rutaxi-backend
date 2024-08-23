@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { MY_TAXI_PARTIES, FETCH_USER } from '../../graphql/queries';
+import { useLocation } from 'react-router-dom';
 import { TaxiList } from "../listElement";
 import './MainContent.css';
+import { Modal } from '../modal';
 
 function MainContent({setUserName, setUserEmail}) {
     const { loading, error, data, refetch } = useQuery(MY_TAXI_PARTIES);
     const { data: userData } = useQuery(FETCH_USER);
     const [myPartyList, setMyPartyList] = React.useState([]);
+
+    const location = useLocation();
+    const { isDeleted } = location.state || false;
+    const [isModalOpen, setIsModalOpen] = React.useState(isDeleted);
     
     useEffect(() => {
         if (userData) {
@@ -43,6 +49,12 @@ function MainContent({setUserName, setUserEmail}) {
             <h2>Taxi Soon</h2>
             <div className="main-description">가입한 택시팟을 확인하세요!</div>
             <TaxiList taxiPartyList={myPartyList} />
+
+            <Modal
+                modalIsOpen={isModalOpen}
+                setIsOpen={setIsModalOpen}
+                type="delete"
+            />
         </div>
     );
 }

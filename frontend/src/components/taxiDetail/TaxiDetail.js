@@ -41,7 +41,7 @@ function TaxiDetail({ userName }) {
             setRideTogether(false);
             setChangeCnt(-1);
             if(users.length == 1) {
-                navigate(-1, { state: { isDeleted: true } });
+                navigate('/', { state: { isDeleted: true } });
             }
             // navigate('/taxi-party-list');
         } catch (err) {
