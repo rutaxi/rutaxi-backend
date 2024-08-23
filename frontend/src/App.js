@@ -13,6 +13,9 @@ function App() {
   const location = useLocation();
   const disappearNavBar = !(location.pathname === '/taxi-party-chat' || location.pathname === '/edit-profile');
 
+  const [navActive, setNavActive] = useState(location.pathname === '/taxi-party-list' ? 'list' : location.pathname === '/mypage' ? 'search' : 'home');
+  const [navChage, setNavChange] = useState(false);
+
   return (
     <div className="App">
       <Routes>
@@ -24,7 +27,7 @@ function App() {
         <Route path='/mypage' element={<MyPage setIsLoggedIn={setIsLoggedIn} userName={userName} />} />
         <Route path='/edit-profile' element={<EditProfile setCurUserName={setUserName} />} />
       </Routes>
-      {isLoggedIn && disappearNavBar && <NavBar />}
+      {isLoggedIn && disappearNavBar && <NavBar navActive={navActive} setNavActive={setNavActive} navChage={navChage} setNavChange={setNavChange} />}
     </div>
   );
 }

@@ -25,7 +25,7 @@ function TaxiInfo({ taxiParty }) {
             {/* 시간 정보 */}
             <div id='taxi-party-detail-bottom-wrapper'>
                 <DetailInfo title="탑승시간" subtitle={startTimeStr} description={startDate} type="time" />
-                <QuestionIcon id='taxi-party-detail-question-mark' />
+                {/* <QuestionIcon id='taxi-party-detail-question-mark' /> */}
             </div>
         </div>
     )

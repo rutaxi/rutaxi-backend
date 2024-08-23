@@ -26,7 +26,7 @@ function TaxiPartyList() {
         <div id="taxi-party-list-wrapper">
             {/* 택시팟 리스트 타이틀 */}
             <div id="taxi-party-list-subtitle">
-                <div>인하대학교</div>
+                <div>97여단</div>
                 <Link to="/create-taxi-party"><AddIcon /></Link>
             </div>
             <h2>Taxi Party</h2>
