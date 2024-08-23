@@ -7,7 +7,7 @@ function TaxiPartyDetail({ userName }) {
   return (
     <div id='taxi-party-detail-wrapper'>
         {/* 택시팟 디테일 타이틀 */}
-        <div id='taxi-party-detail-community'>인하대학교</div>
+        <div id='taxi-party-detail-community'>97여단</div>
         <h2>Taxi Party</h2>
     
         {/* 구글 지도 */}
