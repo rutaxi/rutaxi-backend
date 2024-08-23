@@ -9,6 +9,13 @@
     width: 100%;
     background: white;
     box-sizing: border-box;
+    margin-left: calc(384px - 50%) !important;
+}
+
+@media (max-width: 768px) {
+    #nav-bar-wrapper {
+        margin-left: 0 !important;
+    }
 }
 
 #nav-bar-wrapper a {
