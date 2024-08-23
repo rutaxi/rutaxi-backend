@@ -3,13 +3,19 @@ import { useEffect, useState } from 'react';
 import { NavTaxiGray, NavTaxiGreen, NavSearchGray, NavSearchGreen, NavUserGray, NavUserGreen } from "../../assets/navBar";
 import './NavBar.css';
 
-function NavBar() {
+function NavBar({ navActive, setNavActive, navChage, setNavChange }) {
     const location = useLocation();
-    const [navActive, setNavActive] = useState(location.pathname === '/taxi-party-list' ? 'list' : location.pathname === '/mypage' ? 'search' : 'home');
 
     useEffect(() => {
-        console.log(location.pathname);
-        setNavActive(location.pathname === '/taxi-party-list' ? 'list' : location.pathname === '/mypage' ? 'search' : location.pathname === '/' ? 'home' : navActive);
+        if(location.pathname === '/taxi-party-list' || location.pathname === '/mypage' || location.pathname === '/') {
+            setNavActive(location.pathname === '/taxi-party-list' ? 'list' : location.pathname === '/mypage' ? 'search' : location.pathname === '/' ? 'home' : navActive);
+        }
+    }, [navChage]);
+
+    useEffect(() => {
+        if(location.pathname === '/taxi-party-list' || location.pathname === '/mypage' || location.pathname === '/') {
+            setNavChange(!navChage);
+        }
     }, [location]);
 
     return (
