@@ -5,7 +5,7 @@ import LogoutContent from './LogoutModal';
 import CreateModal from './CreateModal';
 import DeleteModal from './DeleteModal';
 
-function DescriptionModal({ modalIsOpen, setIsOpen, type, setIsLoggedIn }) {
+function DescriptionModal({ modalIsOpen, setIsOpen, type, setIsLoggedIn, handleLogout }) {
     function closeModal() {
         setIsOpen(false);
     }
@@ -18,7 +18,7 @@ function DescriptionModal({ modalIsOpen, setIsOpen, type, setIsLoggedIn }) {
             style={customStyles}
             contentLabel="Example Modal" >
             {type && type == "logout" ?
-                <LogoutContent closeModal={closeModal} setIsLoggedIn={setIsLoggedIn} /> :
+                <LogoutContent closeModal={closeModal} setIsLoggedIn={setIsLoggedIn} handleLogout={handleLogout} /> :
                 (type == "create" ? <CreateModal closeModal={closeModal} /> : type == 'delete' ? <DeleteModal closeModal={closeModal} /> : <ChatModal closeModal={closeModal} />)}
         </Modal>
     );

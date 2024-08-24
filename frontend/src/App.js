@@ -16,6 +16,17 @@ function App() {
   const [navActive, setNavActive] = useState(location.pathname === '/taxi-party-list' ? 'list' : location.pathname === '/mypage' ? 'search' : 'home');
   const [navChage, setNavChange] = useState(false);
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
+    document.cookie = 'rutaxiRefreshToken=; Max-Age=0; path=/;';
+
+    setIsLoggedIn(false);
+    // closeModal();
+    // goToMain();
+  }
+
   return (
     <div className="App">
       <Routes>
@@ -24,7 +35,7 @@ function App() {
         <Route path='/taxi-party-detail' element={<TaxiPartyDetail userName={userName} />} />
         <Route path='/create-taxi-party' element={<CreateTaxiParty />} />
         <Route path='/taxi-party-chat' element={<TaxiPartyChat userName={userName} userEmail={userEmail} />} />
-        <Route path='/mypage' element={<MyPage setIsLoggedIn={setIsLoggedIn} userName={userName} />} />
+        <Route path='/mypage' element={<MyPage setIsLoggedIn={setIsLoggedIn} userName={userName} handleLogout={handleLogout} />} />
         <Route path='/edit-profile' element={<EditProfile setCurUserName={setUserName} />} />
       </Routes>
       {isLoggedIn && disappearNavBar && <NavBar navActive={navActive} setNavActive={setNavActive} navChage={navChage} setNavChange={setNavChange} />}

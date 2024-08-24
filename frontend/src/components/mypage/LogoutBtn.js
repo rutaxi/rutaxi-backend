@@ -2,7 +2,7 @@ import React from "react";
 import { Modal } from "../../components/modal";
 import './LogoutBtn.css';
 
-function LogoutBtn({ setIsLoggedIn }) {
+function LogoutBtn({ setIsLoggedIn, handleLogout }) {
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
     function handleLogoutClick() {
@@ -13,6 +13,7 @@ function LogoutBtn({ setIsLoggedIn }) {
         <>
         <div id="mypage-logout-btn" onClick={handleLogoutClick}>로그아웃</div>
         <Modal
+            handleLogout={handleLogout}
             modalIsOpen={modalIsOpen}
             setIsOpen={setIsOpen}
             setIsLoggedIn={setIsLoggedIn}

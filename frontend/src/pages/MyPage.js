@@ -4,7 +4,7 @@ import { FETCH_USER } from '../graphql/queries';
 import './MyPage.css';
 import { LogoutBtn, UserInfo } from "../components/mypage";
 
-function MyPage({ setIsLoggedIn }) {
+function MyPage({ setIsLoggedIn, handleLogout }) {
     const { loading, error, data, refetch } = useQuery(FETCH_USER);
     const [userName, setUserName] = React.useState(localStorage.getItem('userName'));
 
@@ -28,7 +28,7 @@ function MyPage({ setIsLoggedIn }) {
             <hr id="mypage-hr" />
 
             {/* 로그아웃 버튼 */}
-            <LogoutBtn setIsLoggedIn={setIsLoggedIn} />
+            <LogoutBtn handleLogout={handleLogout} setIsLoggedIn={setIsLoggedIn} />
         </div>
     );
 }
