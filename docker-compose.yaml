@@ -1,6 +1,17 @@
 # 컴퓨터들
 services:
 
+  # 데이터베이스컴퓨터
+  my-database:
+
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'mydocker'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - 3306:3306
+
+
   # 서버컴퓨터
   my-backend:
     build:
@@ -25,13 +36,3 @@ services:
   #     - 3000:3000
   #   env_file:
   #     - ./frontend/.env
-
-  # 데이터베이스컴퓨터
-  my-database:
-
-    image: mysql:latest
-    environment:
-      MYSQL_DATABASE: 'mydocker'
-      MYSQL_ROOT_PASSWORD: 'root'
-    ports:
-      - 3306:3306
