@@ -59,8 +59,6 @@ export class AuthService {
             res.setHeader('Access-Control-Allow-Origin', 'https://rutaxi.site');
             res.setHeader('Access-Control-Allow-Credentials', 'true');
         }
-
-        return refreshToken;
     }
  
 }
