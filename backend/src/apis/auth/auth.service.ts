@@ -52,8 +52,9 @@ export class AuthService {
         );
 
         // 배포환경
-        // context.res.setHeader('set-Cookie', `refreshToken=${refreshToken}; path=/; domain=.mybacksite.com; SameSite=None; Secure; HttpOnly`);
-        // context.res.setHeader('Access-Control-Allow-Origin', 'https://myfrontsite.com');
+        // res.setHeader('set-Cookie', `testCookie=testValue; path=/; domain=.rutaxi.site; SameSite=None; Secure; HttpOnly`);
+        // res.setHeader('Access-Control-Allow-Origin', 'https://rutaxi.site');
+        // res.setHeader('Access-Control-Allow-Credentials', 'true');
     }
  
 }
