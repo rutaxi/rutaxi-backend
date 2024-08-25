@@ -1,0 +1,10 @@
+FROM node:20
+
+COPY ./package.json /myfolder/backend/
+COPY ./yarn.lock /myfolder/backend/
+WORKDIR /myfolder/backend
+RUN yarn install
+
+COPY . /myfolder/backend/
+
+CMD yarn start:prod
