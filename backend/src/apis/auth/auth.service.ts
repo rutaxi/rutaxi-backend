@@ -49,7 +49,7 @@ export class AuthService {
 
         if (process.env.NODE_ENV === "production") {
             // 배포환경
-            res.setHeader('set-Cookie', `testCookie=testValue; path=/; domain=.rutaxi.site; SameSite=None; Secure; HttpOnly`);
+            res.setHeader('set-Cookie', `rutaxiRefreshToken=${refreshToken}; path=/; domain=.rutaxi.site; SameSite=None; Secure; HttpOnly`);
             res.setHeader('Access-Control-Allow-Origin', 'https://rutaxi.site');
             res.setHeader('Access-Control-Allow-Credentials', 'true');
         } else {
