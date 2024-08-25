@@ -40,7 +40,7 @@ export class AuthService {
         return this.getAccessToken({user})
     }
 
-    setRefreshToken({user, res}: IAuthServiceSetRefreshToken): string {
+    setRefreshToken({user, res}: IAuthServiceSetRefreshToken): void {
         // 개발환경
         const refreshToken = this.jwtService.sign(
             {sub: user.id},
