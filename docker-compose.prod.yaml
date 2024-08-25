@@ -5,7 +5,7 @@ services:
   my-backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     # volumes:
       # - ./backend/src:/myfolder/backend/src
     ports:
@@ -14,14 +14,24 @@ services:
       - ./backend/.env.prod
   
   # 프론트엔드컴퓨터
-  my-frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    # volumes:
-      # - ./frontend/src:/myfolder/frontend/src
-      # - ./frontend/public:/myfolder/frontend/public
+  # my-frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   # volumes:
+  #     # - ./frontend/src:/myfolder/frontend/src
+  #     # - ./frontend/public:/myfolder/frontend/public
+  #   ports:
+  #     - 3000:3000
+  #   env_file:
+  #     - ./frontend/.env.prod
+
+  # 데이터베이스컴퓨터
+  my-database:
+
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'mydocker'
+      MYSQL_ROOT_PASSWORD: 'root'
     ports:
-      - 3000:3000
-    env_file:
-      - ./frontend/.env.prod
+      - 3306:3306
