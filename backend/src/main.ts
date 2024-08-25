@@ -8,7 +8,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe())
   app.useGlobalFilters(new HttpExceptionFilter())
   app.enableCors({
-    origin: ['http://localhost:3000', 'https://*.gitpod.io', 'https://rutaxi.site:3000', 'https://rutaxi.site'], // 리액트 애플리케이션이 실행되는 도메인
+    origin: 'https://rutaxi.site', // 리액트 애플리케이션이 실행되는 도메인
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   })
