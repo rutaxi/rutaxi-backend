@@ -47,17 +47,17 @@ export class AuthService {
             {secret: "나의리프레시비밀번호", expiresIn: '2w'},
         );
 
-        if (process.env.NODE_ENV === "production") {
-            // 배포환경
-            res.setHeader('set-Cookie', `rutaxiRefreshToken=${refreshToken}; path=/; domain=.rutaxi.site; SameSite=None; Secure; HttpOnly`);
-            res.setHeader('Access-Control-Allow-Origin', 'https://rutaxi.site');
-            res.setHeader('Access-Control-Allow-Credentials', 'true');
-        } else {
-            // 개발환경     
+        if (process.env.NODE_ENV === "host") {
+            // localhost 환경
             res.setHeader(
                 'set-Cookie', 
                 `rutaxiRefreshToken=${refreshToken}; path=/;`,
             );
+        } else {
+            // 배포환경    
+            res.setHeader('set-Cookie', `rutaxiRefreshToken=${refreshToken}; path=/; domain=.rutaxi.site; SameSite=None; Secure; HttpOnly`);
+            res.setHeader('Access-Control-Allow-Origin', 'https://rutaxi.site');
+            res.setHeader('Access-Control-Allow-Credentials', 'true');
         }
     }
  
