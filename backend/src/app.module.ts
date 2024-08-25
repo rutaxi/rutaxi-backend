@@ -20,6 +20,7 @@ import { ConfigModule } from '@nestjs/config'
       driver: ApolloDriver,
       autoSchemaFile: 'src/commons/graphql/schema.gql',
       context: ({ req, res }) => ({ req, res }),
+      playground: process.env.NODE_ENV === 'development', // 개발 환경에서만 활성화
     }),
     TypeOrmModule.forRoot({
       type: process.env.DATABASE_TYPE as 'mysql',
