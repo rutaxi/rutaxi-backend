@@ -12,6 +12,7 @@ import {
 } from './pages'
 import NavBar from './components/navBar/NavBar'
 import './App.css'
+import GoogleRedirect from './pages/GoogleRedirect'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
