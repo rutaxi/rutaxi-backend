@@ -4,10 +4,6 @@ import { GoogleIcon } from '../assets/login'
 import { LoginForm, JoinForm } from '../components/login'
 import './Login.css'
 import { Link } from 'react-router-dom'
-import Cookies from 'js-cookie'
-
-import { useMutation } from '@apollo/client'
-import { RESTORE_ACCESS_TOKEN } from '../graphql/mutations'
 
 const override = {
   margin: '0 auto',
@@ -18,29 +14,29 @@ const override = {
 function Login({ setIsLoggedIn, setUserName }) {
   const [login, setLogin] = useState(true)
 
-  const [restoreAccessToken] = useMutation(RESTORE_ACCESS_TOKEN)
+  // const [restoreAccessToken] = useMutation(RESTORE_ACCESS_TOKEN)
 
-  useEffect(() => {
-    // 쿠키에서 refreshToken 가져오기
-    const token = Cookies.get('rutaxiRefreshToken')
-    // localStorage.setItem('token', token)
+  // useEffect(() => {
+  //   // 쿠키에서 refreshToken 가져오기
+  //   const token = Cookies.get('rutaxiRefreshToken')
+  //   // localStorage.setItem('token', token)
 
-    const fetchAccessToken = async () => {
-      try {
-        const accessToken = await restoreAccessToken()
-        localStorage.setItem('token', accessToken.data.restoreAccessToken)
-        localStorage.setItem('userName', 'testName')
-        // setUserName('testName')
-        setIsLoggedIn(true)
-      } catch (err) {
-        console.error('Error logging in:', err)
-      }
-    }
+  //   const fetchAccessToken = async () => {
+  //     try {
+  //       const accessToken = await restoreAccessToken()
+  //       localStorage.setItem('token', accessToken.data.restoreAccessToken)
+  //       localStorage.setItem('userName', 'testName')
+  //       // setUserName('testName')
+  //       setIsLoggedIn(true)
+  //     } catch (err) {
+  //       console.error('Error logging in:', err)
+  //     }
+  //   }
 
-    if (token) {
-      fetchAccessToken()
-    }
-  }, [])
+  //   if (token) {
+  //     fetchAccessToken()
+  //   }
+  // }, [])
 
   return (
     <div
@@ -64,13 +60,13 @@ function Login({ setIsLoggedIn, setUserName }) {
 
       {/* 구글 로그인 */}
       <button id="login-google-btn">
-        <Link to={process.env.REACT_APP_GRAPHQL_URI+"/login/google"}>
+        <Link to={process.env.REACT_APP_GRAPHQL_URI + '/login/google'}>
           <GoogleIcon />
           <span>Sign in with Google</span>
         </Link>
       </button>
 
-      <div style={{display: 'none'}}>
+      <div style={{ display: 'none' }}>
         {/* 로그인 유형 구분선 */}
         <div id="login-or">
           <hr />
