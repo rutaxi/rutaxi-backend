@@ -108,7 +108,7 @@ export class TaxiPartiesService {
         // 택시파티에 사용자가 더 이상 없으면 삭제하거나 다른 처리를 할 수 있음
         if (taxiParty.users.length === 0) {
             // 택시파티를 삭제
-            this.taxiPartiesRepository.remove(taxiParty);
+            this.taxiPartiesRepository.delete({id: taxiPartyId});
         } else {
             // 변경사항 저장
             await this.taxiPartiesRepository.save(taxiParty);
