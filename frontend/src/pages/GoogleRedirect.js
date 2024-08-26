@@ -1,13 +1,15 @@
 import { useMutation } from '@apollo/client'
 import { RESTORE_ACCESS_TOKEN } from '../graphql/mutations'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function GoogleRedirect({ setIsLoggedIn }) {
   const [restoreAccessToken] = useMutation(RESTORE_ACCESS_TOKEN)
-  const history = useHistory()
+  const history = useNavigate()
 
   useEffect(() => {
     const fetchAccessToken = async () => {
+      console.log('fetching access token')
       try {
         const accessToken = await restoreAccessToken()
         localStorage.setItem('token', accessToken.data.restoreAccessToken)
@@ -19,12 +21,10 @@ function GoogleRedirect({ setIsLoggedIn }) {
       }
     }
 
-    if (token) {
-      fetchAccessToken()
-    }
+    fetchAccessToken()
   }, [])
 
-  return <div>Redirecting...</div>
+  return <div>🚖 Redirecting... 🚕 🚕 🚕</div>
 }
 
 export default GoogleRedirect
