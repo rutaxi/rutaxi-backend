@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Navigate } from 'react-router-dom'
 import {
   CreateTaxiParty,
   EditProfile,
@@ -13,6 +13,7 @@ import {
 import NavBar from './components/navBar/NavBar'
 import './App.css'
 import GoogleRedirect from './pages/GoogleRedirect'
+import NotFound from './pages/NotFound'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -65,34 +66,63 @@ function App() {
             />
           }
         />
-        <Route path="/taxi-party-list" element={<TaxiPartyList />} />
+        <Route
+          path="/taxi-party-list"
+          element={isLoggedIn ? <TaxiPartyList /> : <Navigate to="/" />}
+        />
         <Route
           path="/taxi-party-detail"
-          element={<TaxiPartyDetail userName={userName} />}
+          element={
+            isLoggedIn ? (
+              <TaxiPartyDetail userName={userName} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
         />
-        <Route path="/create-taxi-party" element={<CreateTaxiParty />} />
+        <Route
+          path="/create-taxi-party"
+          element={isLoggedIn ? <CreateTaxiParty /> : <Navigate to="/" />}
+        />
         <Route
           path="/taxi-party-chat"
-          element={<TaxiPartyChat userName={userName} userEmail={userEmail} />}
+          element={
+            isLoggedIn ? (
+              <TaxiPartyChat userName={userName} userEmail={userEmail} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
         />
         <Route
           path="/mypage"
           element={
-            <MyPage
-              setIsLoggedIn={setIsLoggedIn}
-              userName={userName}
-              handleLogout={handleLogout}
-            />
+            isLoggedIn ? (
+              <MyPage
+                setIsLoggedIn={setIsLoggedIn}
+                userName={userName}
+                handleLogout={handleLogout}
+              />
+            ) : (
+              <Navigate to="/" />
+            )
           }
         />
         <Route
           path="/edit-profile"
-          element={<EditProfile setCurUserName={setUserName} />}
+          element={
+            isLoggedIn ? (
+              <EditProfile setCurUserName={setUserName} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
         />
         <Route
           path="/google-redirect"
           element={<GoogleRedirect setIsLoggedIn={setIsLoggedIn} />}
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {isLoggedIn && disappearNavBar && (
         <NavBar
