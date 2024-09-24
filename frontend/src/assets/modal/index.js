@@ -1,1 +1,0 @@
-export { ReactComponent as XIcon } from './ic_x.svg'

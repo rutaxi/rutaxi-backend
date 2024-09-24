@@ -1,1 +1,0 @@
-export { ReactComponent as GoogleIcon } from './ic_google.svg'
